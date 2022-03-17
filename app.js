@@ -4,6 +4,7 @@ const Intern = require("./lib/Intern");
 const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
+const jest = require('jest')
 
 const outputDir = path.resolve(__dirname, "output");
 const outputPath = path.join(outputDir, "team.html");
