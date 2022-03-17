@@ -85,87 +85,89 @@ initInput = () => {
         }
       })
   }
+  const createEngineer = () => {
+    inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'engineerName',
+          message: 'Name of engineer?',
+          return,
+        },
+        {
+          type: 'input',
+          name: 'engineerID',
+          message: 'ID of engineer?',
+          return,
+        },
+        {
+          type: 'input',
+          name: 'engineerEmail',
+          message: 'Email of engineer?',
+          return,
+        },
+        {
+          type: 'input',
+          name: 'engineerGit',
+          message: 'GitHub account link of engineer?',
+          return,
+        }
+      ])
+      .then((answers) => {
+        const engineer = new Engineer(
+          answers.engineerName,
+          answers.engineerID,
+          answers.engineerEmail,
+          answers.engineerGit
+        )
+        fullTeam.push(engineer)
+        idArray.push(answers.engineerID)
+        createTeamMember()
+      }
+  }
+
+  const intern = () => {
+    inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'internName',
+          message: 'Name of intern?',
+          return,
+        },
+        {
+          type: 'input',
+          name: 'internID',
+          message: 'ID of intern?',
+          return,
+        },
+        {
+          type: 'input',
+          name: 'internEmail',
+          message: 'Email of intern?',
+          return,
+        },
+        {
+          type: 'input',
+          name: 'internSchool',
+          message: 'School of intern?',
+          return,
+        }
+      ])
+      .then((answers) => {
+        const intern = new Intern(
+          answers.internName,
+          answers.internID,
+          answers.internEmail,
+          answers.internSchool
+        )
+        fullTeam.push(intern)
+        idArray.push(answers.internID)
+        createTeamMember()
+      }
+  }
 }
 
-const createEngineer = () => {
-  inquirer
-    .prompt([
-      {
-        type: 'input',
-        name: 'engineerName',
-        message: 'Name of engineer?',
-        return,
-      },
-      {
-        type: 'input',
-        name: 'engineerID',
-        message: 'ID of engineer?',
-        return,
-      },
-      {
-        type: 'input',
-        name: 'engineerEmail',
-        message: 'Email of engineer?',
-        return,
-      },
-      {
-        type: 'input',
-        name: 'engineerGit',
-        message: 'GitHub account link of engineer?',
-        return,
-      }
-    ])
-    .then((answers) => {
-      const engineer = new Engineer(
-        answers.engineerName,
-        answers.engineerID,
-        answers.engineerEmail,
-        answers.engineerGit
-      )
-      fullTeam.push(engineer)
-      idArray.push(answers.engineerID)
-      createTeamMember()
-}
-
-const intern = () => {
-  inquirer
-    .prompt([
-      {
-        type: 'input',
-        name: 'internName',
-        message: 'Name of intern?',
-        return,
-      },
-      {
-        type: 'input',
-        name: 'internID',
-        message: 'ID of intern?',
-        return,
-      },
-      {
-        type: 'input',
-        name: 'internEmail',
-        message: 'Email of intern?',
-        return,
-      },
-      {
-        type: 'input',
-        name: 'internSchool',
-        message: 'School of intern?',
-        return,
-      }
-    ])
-    .then((answers) => {
-      const intern = new Intern(
-        answers.internName,
-        answers.internID,
-        answers.internEmail,
-        answers.internSchool
-      )
-      fullTeam.push(intern)
-      idArray.push(answers.internID)
-      createTeamMember()
-}
 
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
