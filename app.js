@@ -5,11 +5,10 @@ const inquirer = require("inquirer");
 const path = require("path");
 const fs = require("fs");
 
-const OUTPUT_DIR = path.resolve(__dirname, "output");
-const outputPath = path.join(OUTPUT_DIR, "team.html");
+const outputDir = path.resolve(__dirname, "output");
+const outputPath = path.join(outputDir, "team.html");
 
 const render = require("./lib/htmlRenderer");
-
 
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
@@ -181,7 +180,12 @@ const renderedTeam = render(fullTeam)
 // Hint: you may need to check if the `output` folder exists and create it if it
 // does not.
 
-
+finalizeTeam = () => {
+  if (!fs.existsSync(outputDir)) {
+    fs.mkdirSync(outputDir)
+  }
+  fs.writeFileSync(outputPath, render(renderedTeam), 'utf-8')
+}
 
 // HINT: each employee type (manager, engineer, or intern) has slightly different
 // information; write your code to ask different questions via inquirer depending on
