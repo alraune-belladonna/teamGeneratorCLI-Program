@@ -62,8 +62,25 @@ initInput = () => {
           inquirer
             .prompt([
               type: 'list',
-              name
+              name: 'pickMember',
+              message: 'Which type of team member to add?',
+              choices: [
+                'Engineer',
+                'Intern',
+                'I am finished adding team members',
+              ]
             ])
+            .then((userInput) => {
+              switch (userInput.pickMember) {
+                case 'Engineer'
+                  createEngineer()
+                  break
+                case 'Intern'
+                  createIntern()
+                  break
+                default:
+              }
+            })
         }
       })
   }
