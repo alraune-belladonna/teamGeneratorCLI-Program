@@ -56,32 +56,31 @@ initInput = () => {
         )
         fullTeam.push(manager)
         idArray.push(answers.managerID)
+        createTeamMember()
       })
-      .then((answers) => {
-        const createTeamMember = () => {
-          inquirer
-            .prompt([
-              type: 'list',
-              name: 'pickMember',
-              message: 'Which type of team member to add?',
-              choices: [
-                'Engineer',
-                'Intern',
-                'I am finished adding team members',
-              ]
-            ])
-            .then((userInput) => {
-              switch (userInput.pickMember) {
-                case 'Engineer'
-                  createEngineer()
-                  break
-                case 'Intern'
-                  createIntern()
-                  break
-                default:
-                  finalizeTeam()
-              }
-            })
+  }
+  const createTeamMember = () => {
+    inquirer
+      .prompt([
+        type: 'list',
+        name: 'pickMember',
+        message: 'Which type of team member to add?',
+        choices: [
+          'Engineer',
+          'Intern',
+          'I am finished adding team members',
+        ]
+      ])
+      .then((userInput) => {
+        switch (userInput.pickMember) {
+          case 'Engineer'
+            createEngineer()
+            break
+          case 'Intern'
+            createIntern()
+            break
+          default:
+            finalizeTeam()
         }
       })
   }
