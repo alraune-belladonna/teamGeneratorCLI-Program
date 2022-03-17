@@ -79,6 +79,7 @@ initInput = () => {
                   createIntern()
                   break
                 default:
+                  finalizeTeam()
               }
             })
         }
