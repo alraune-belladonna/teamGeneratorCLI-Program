@@ -26,25 +26,25 @@ initInput = () => {
           type: 'input',
           name: 'managerName',
           message: 'Enter name of manager',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'managerID',
           message: "Enter ID for manager",
-          return,
+          return
         },
         {
           type: 'input',
           name: 'managerEmail',
           message: 'Enter contact email for manager.',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'managerOfficeNum',
           message: 'Enter office number of manager.',
-          return,
+          return
         }
       ])
       .then((answers) => {
@@ -91,25 +91,25 @@ initInput = () => {
           type: 'input',
           name: 'engineerName',
           message: 'Name of engineer?',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'engineerID',
           message: 'ID of engineer?',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'engineerEmail',
           message: 'Email of engineer?',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'engineerGit',
           message: 'GitHub account link of engineer?',
-          return,
+          return
         }
       ])
       .then((answers) => {
@@ -132,25 +132,25 @@ initInput = () => {
           type: 'input',
           name: 'internName',
           message: 'Name of intern?',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'internID',
           message: 'ID of intern?',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'internEmail',
           message: 'Email of intern?',
-          return,
+          return
         },
         {
           type: 'input',
           name: 'internSchool',
           message: 'School of intern?',
-          return,
+          return
         }
       ])
       .then((answers) => {
