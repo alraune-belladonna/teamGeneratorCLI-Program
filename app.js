@@ -14,9 +14,10 @@ const render = require("./lib/htmlRenderer");
 // Write code to use inquirer to gather information about the development team members,
 // and to create objects for each team member (using the correct classes as blueprints!)
 
+const fullTeam = []
+const idArray = []
+
 initInput = () => {
-  const fullTeam = []
-  const idArray = []
 
   console.log('Assemble your team!')
   newManager = () => {
@@ -86,9 +87,91 @@ initInput = () => {
   }
 }
 
+const createEngineer = () => {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'engineerName',
+        message: 'Name of engineer?',
+        return,
+      },
+      {
+        type: 'input',
+        name: 'engineerID',
+        message: 'ID of engineer?',
+        return,
+      },
+      {
+        type: 'input',
+        name: 'engineerEmail',
+        message: 'Email of engineer?',
+        return,
+      },
+      {
+        type: 'input',
+        name: 'engineerGit',
+        message: 'GitHub account link of engineer?',
+        return,
+      }
+    ])
+    .then((answers) => {
+      const engineer = new Engineer(
+        answers.engineerName,
+        answers.engineerID,
+        answers.engineerEmail,
+        answers.engineerGit
+      )
+      fullTeam.push(engineer)
+      idArray.push(answers.engineerID)
+      createTeamMember()
+}
+
+const intern = () => {
+  inquirer
+    .prompt([
+      {
+        type: 'input',
+        name: 'internName',
+        message: 'Name of intern?',
+        return,
+      },
+      {
+        type: 'input',
+        name: 'internID',
+        message: 'ID of intern?',
+        return,
+      },
+      {
+        type: 'input',
+        name: 'internEmail',
+        message: 'Email of intern?',
+        return,
+      },
+      {
+        type: 'input',
+        name: 'internSchool',
+        message: 'School of intern?',
+        return,
+      }
+    ])
+    .then((answers) => {
+      const intern = new Intern(
+        answers.internName,
+        answers.internID,
+        answers.internEmail,
+        answers.internSchool
+      )
+      fullTeam.push(intern)
+      idArray.push(answers.internID)
+      createTeamMember()
+}
+
 // After the user has input all employees desired, call the `render` function (required
 // above) and pass in an array containing all employee objects; the `render` function will
 // generate and return a block of HTML including templated divs for each employee!
+
+const renderedTeam = render(fullTeam)
 
 // After you have your html, you're now ready to create an HTML file using the HTML
 // returned from the `render` function. Now write it to a file named `team.html` in the
