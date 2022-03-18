@@ -26,6 +26,7 @@
     "iconv-lite": "^0.4.24",
     "inquirer": "^6.5.2",
     "is-fullwidth-code-point": "^2.0.0",
+    "jest": "^27.5.1",
     "lodash": "^4.17.21",
     "mimic-fn": "^1.2.0",
     "mute-stream": "^0.0.7",
